@@ -1,0 +1,48 @@
+---
+title: "data manipulation"
+output: html_document
+---
+
+I'm an R Markdown document! 
+
+
+```{r}
+library(tidyverse)
+```
+
+## load in FAS litters data
+```{r}
+lit_df <- read_csv('./data_import_examples/FAS_litters.csv')
+lit_df <- df <- janitor::clean_names(lit_df)
+```
+
+## select
+
+```{r}
+select(lit_df,group,gd0_weight)
+```
+```{r}
+select(lit_df,group,gd0_weight:gd_of_birth)
+```
+```{r}
+select(lit_df,-gd0_weight)
+```
+
+rename columns:
+```{r}
+select(lit_df,GROUP=group,LITTER=litter_number)
+rename(lit_df,GROUP=group,LITTER=litter_number)
+```
+```{r}
+select(lit_df,starts_with('gd'))
+```
+```{r}
+select(lit_df,litter_number, everything())
+```
+```{r}
+relocate(lit_df,gd0_weight)
+```
+
+
+
+

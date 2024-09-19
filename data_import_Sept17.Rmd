@@ -33,6 +33,7 @@ skimr::skim(lit_df)
 
 ```{r}
 lit_df <- read_csv('./data_import_examples/FAS_litters.csv',skip = 10,col_names = F)
+lit_df <- read_csv('./data_import_examples/FAS_litters.csv',na = c(".", "NA", ""))
 ```
 "?read_csv()" for more info.
 
@@ -53,3 +54,11 @@ read in an SAS file.
 ```{r}
 pause_df <- read_sas('./data_import_examples/public_pulse_data.sas7bdat')
 ```
+
+
+## Exporting data
+
+```{r}
+write_csv(mlb_df,'./data_import_examples/mlb_subtable.csv')
+```
+

@@ -42,6 +42,37 @@ select(lit_df,litter_number, everything())
 ```{r}
 relocate(lit_df,gd0_weight)
 ```
+```{r}
+filter(lit_df,gd0_weight<22)
+```
+
+```{r}
+filter(lit_df,gd_of_birth!=20)
+```
+```{r}
+filter(lit_df,gd0_weight<22,gd_of_birth==20)
+```
+```{r}
+filter(lit_df,group=='Mod8')
+```
+```{r}
+filter(lit_df,group%in%c('Mod8','Con7'))
+```
+
+## mutate
+
+```{r}
+mutate(lit_df,wt_gain=as.numeric(gd18_weight)-as.numeric(gd0_weight),group = str_to_lower(group))
+```
+
+
+
+
+
+
+
+
+
 
 
 
